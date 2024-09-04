@@ -74,7 +74,7 @@ public class ForwardTestController {
 	
 	
 	
-	@RequestMapping("forward")
+	@RequestMapping("forward") // /forward 요청 매핑 (GET/POST가리지 않음)
 	public String forwardTest() {
 		System.out.println("/forward 매핑됐는지 확인");
 		
