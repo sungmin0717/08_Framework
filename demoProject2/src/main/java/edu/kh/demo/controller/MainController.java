@@ -2,6 +2,12 @@ package edu.kh.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import ch.qos.logback.core.model.Model;
+import edu.kh.demo.dto.Student;
+
 
 @Controller // 컨트롤러 역할 요청 응답 제어 + Bean 등록
 public class MainController {
@@ -27,5 +33,8 @@ public class MainController {
 		// classpath:/templates/main.html
 		return "common/main";
 	}
+	
+
+	
 
 }
