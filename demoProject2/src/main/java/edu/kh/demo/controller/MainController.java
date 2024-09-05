@@ -3,6 +3,8 @@ package edu.kh.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Controller // 컨트롤러 역할 요청 응답 제어 + Bean 등록
 public class MainController {
 	
