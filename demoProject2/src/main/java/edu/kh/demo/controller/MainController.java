@@ -2,6 +2,12 @@ package edu.kh.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import ch.qos.logback.core.model.Model;
+import edu.kh.demo.dto.Student;
+
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
@@ -29,5 +35,8 @@ public class MainController {
 		// classpath:/templates/main.html
 		return "common/main";
 	}
+	
+
+	
 
 }
