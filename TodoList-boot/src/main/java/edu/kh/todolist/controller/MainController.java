@@ -6,8 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.kh.demo.dto.UserDto;
 import edu.kh.todolist.dto.Todo;
 import edu.kh.todolist.service.TodoListService;
 
@@ -33,6 +36,20 @@ public class MainController {
 		// classpath:/templates/common/main.html  forward 
 		return "common/main";
 	}
+	
+	@GetMapping("/todo/detail/{todoNo}")
+	public String detail(
+			Model model,
+			@ModelAttribute Todo todo
+			) {
+		
+		model.addAttribute("todoList", todo);
+		
+		
+		
+		return "todo/update";
+	}
+	
 
 	
 	
