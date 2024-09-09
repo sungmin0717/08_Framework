@@ -94,6 +94,17 @@
 	
 	</delete>
 	
+	<select id="searchTitle"
+			parameterType="_int"
+			resultType="string">
+	
+	
+	SELECT TODO_TITLE
+	FROM TB_TODO
+	WHERE TODO_NO = #{todoNo}
+	
+	</select>
+	
 
 
 </mapper>

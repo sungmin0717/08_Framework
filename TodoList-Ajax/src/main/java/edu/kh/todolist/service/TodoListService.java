@@ -58,6 +58,12 @@ int todoDelete(int todoNo);
 
 
 
+//검색 아이디 찾기
+String searchTitle(int todoNo);
+
+
+
+
 
 
 

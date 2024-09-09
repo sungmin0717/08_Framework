@@ -68,6 +68,14 @@ int todoUpdate(Todo todo);
 int todoDeletet(int todoNo);
 
 
+/** 아이디 검색 
+ * 
+ * @param todoNo
+ * @return
+ */
+String searchTitle(int todoNo);
+
+
 
 	
 	
