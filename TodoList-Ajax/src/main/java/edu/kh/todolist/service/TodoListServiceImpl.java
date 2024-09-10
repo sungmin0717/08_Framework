@@ -80,5 +80,24 @@ public String searchTitle(int todoNo) {
 	return mapper.searchTitle(todoNo);
 }
 
-	
+
+//전체 조회.
+@Override
+public int totalCount() {
+	return mapper.totalCount();
+}
+
+//완료된 할 일 값 조회.
+@Override
+public int getCompleteCount() {
+	return mapper.selectCompleteCount();
+}
+
+//할일 전체 조회
+@Override
+public List<Todo> getTodoList() {
+	return mapper.selectTodoList();
+}
+
+
 }

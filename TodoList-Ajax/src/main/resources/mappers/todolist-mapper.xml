@@ -105,6 +105,21 @@
 	
 	</select>
 	
+	
+	<select id="totalCount"
+			resultType="_int">
+			
+	SELECT 
+		COUNT(*) 
+	FROM 
+		TB_TODO
+	
+	</select>
 
+
+
+	
+	
+	
 
 </mapper>

@@ -1,5 +1,6 @@
 package edu.kh.todolist.service;
 
+import java.util.List;
 import java.util.Map;
 
 import edu.kh.todolist.dto.Todo;
@@ -60,6 +61,35 @@ int todoDelete(int todoNo);
 
 //검색 아이디 찾기
 String searchTitle(int todoNo);
+
+
+
+/** 전체 할 일 개수 조회.
+ * 
+ * @return
+ */
+int totalCount();
+
+
+
+
+/** 완료된 할 일 개수 조회
+ * 
+ * @return completeCount
+ */
+int getCompleteCount();
+
+
+
+/** 할일 전체 조회.
+ * 
+ * @return
+ */
+List<Todo> getTodoList();
+
+
+
+
 
 
 
