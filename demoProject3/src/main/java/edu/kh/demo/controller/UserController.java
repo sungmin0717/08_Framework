@@ -103,9 +103,9 @@ public class UserController {
 		RedirectAttributes ra) {
 		
 		UserDto user = service.selectUser(userNo);
-		
+		//userDto 에 있는 userNo을 갖고 servicer로 이동 
 		if (user != null) {
-			
+			// user가 null이 아닐경우 이동.
 		
 		model.addAttribute("user",user);
 		

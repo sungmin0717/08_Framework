@@ -23,5 +23,13 @@ public interface TodoListMapper {
 	 * @return completeCount
 	 */
 	int selectCompleteCount();
+	List<Todo> userDetail();
+
+
+
+	List<Todo> detailUser();
+
+
+
 
 }

@@ -3,17 +3,19 @@ package edu.kh.todolist.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.kh.demo.dto.UserDto;
 import edu.kh.todolist.dto.Todo;
 import edu.kh.todolist.service.TodoListService;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
+@Mapper
 @Controller // Controller임을 명시 + Bean 등록
 public class MainController {
 	
@@ -21,6 +23,7 @@ public class MainController {
 	private TodoListService service;
 	
 	@RequestMapping("/") // 최상위 주소 매핑(GET, POST 가리지 않음)
+
 	public String mainPage(Model model) {
 		
 		Map<String, Object> map = service.selectTodoList();
@@ -37,17 +40,19 @@ public class MainController {
 		return "common/main";
 	}
 	
+	/*detail 페이지*/
 	@GetMapping("/todo/detail/{todoNo}")
 	public String detail(
 			Model model,
-			@ModelAttribute Todo todo
+			Todo todo
 			) {
 		
-		model.addAttribute("todoList", todo);
+		List<Todo> todoList = service.detailUser();
+		
+		log.debug("todo : {}", todoNo);
 		
 		
-		
-		return "todo/update";
+		return "todo/detail";
 	}
 	
 

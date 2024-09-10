@@ -1,6 +1,9 @@
 package edu.kh.todolist.service;
 
+import java.util.List;
 import java.util.Map;
+
+import edu.kh.todolist.dto.Todo;
 
 public interface TodoListService {
 
@@ -9,5 +12,25 @@ public interface TodoListService {
 	 * @return map
 	 */
 	Map<String, Object> selectTodoList();
+
+	List<Todo> detailUser();
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+	
+	
+
 
 }
