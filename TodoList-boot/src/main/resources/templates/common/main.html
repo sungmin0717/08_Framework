@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="resources/static/css/main.css">
   <title>TodoList</title>
 </head>
 <body>
@@ -14,34 +15,54 @@
     완료된 Todo 개수 : [[${completeCount}]]
   </h3>
 
-  <table id="todoList" border="1">
-    <thead>
-      <tr>
-        <th>번호</th>
-        <th>할 일 제목</th>
-        <th>완료 여부</th>
-        <th>등록 날짜</th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <th:block th:each= "todo : ${todoList}" th:object="${todo}">
-        <tr>
-          <th th:text="*{todoNo}"></th>
-          <td>
-            <a th:href= "@{/todo/detail/{todoNo}(todoNo=*{todoNo})}" 
-              th:text="*{todoTitle}"
-              class="title">
-            </a>
-          </td>
-          <th th:text="*{todoComplete} == 1 ? 'O' : 'X'"></th>
-          <td th:text="*{regDate}"></td>
-        </tr>
-      </th:block>
-    </tbody>
-  </table>
 
+<div name="main">
+    <h4>할 일 추가</h4>
+    <form action="/todo/add" method="post" id="addForm">
+      <div>
+        제목 : <input type="text" name="todoTitle">
+      </div>
+      <div>
+        <textarea name="todoDetail" 
+          rows="3" cols="50" placeholder="상세 내용"></textarea>
+      </div>
   
+      <button>추가</button>
+    </form>
+  
+  
+  
+    <table id="todoList" border="1">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>할 일 제목</th>
+          <th>완료 여부</th>
+          <th>등록 날짜</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <th:block th:each= "todo : ${todoList}" th:object="${todo}">
+          <tr>
+            <th th:text="*{todoNo}"></th>
+            <td>
+              <a th:href= "@{/todo/detail/{todoNo}(todoNo=*{todoNo})}" 
+                th:text="*{todoTitle}"
+                class="title">
+              </a>
+            </td>
+            <th th:text="*{todoComplete} == 1 ? 'O' : 'X'"></th>
+            <td th:text="*{regDate}"></td>
+          </tr>
+        </th:block>
+      </tbody>
+    </table>
+  
+</div>
+  <!-- footer 조각 추가 -->
+  <th:block th:replace= "~{common/footer}"> </th:block>
+
 
 </body>
 </html>

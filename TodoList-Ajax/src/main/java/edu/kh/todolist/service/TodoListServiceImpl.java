@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import edu.kh.todolist.dto.Todo;
 import edu.kh.todolist.mapper.TodoListMapper;
 
+
 @Transactional // 내부 메서드 수행 후 트랜잭션 처리 수행
 							// - 예외 발생 시 rollback, 아님 commit
 @Service //서비스 역할임을 명시
@@ -40,16 +41,6 @@ public class TodoListServiceImpl implements TodoListService{
 	}
 	
 	
-<<<<<<< HEAD
-	
-		
-		
-	
-
-	
-
-
-=======
 	// 할 일 추가
 	@Override
 	public int todoAdd(Todo todo) {
@@ -78,11 +69,35 @@ public class TodoListServiceImpl implements TodoListService{
 		
 		return mapper.todoUpdate(todo);
 	}
+	//삭제
 @Override
 public int todoDelete(int todoNo) {
 	return mapper.todoDeletet(todoNo);
 }
 
->>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
-	
+@Override
+public String searchTitle(int todoNo) {
+	return mapper.searchTitle(todoNo);
+}
+
+
+//전체 조회.
+@Override
+public int totalCount() {
+	return mapper.totalCount();
+}
+
+//완료된 할 일 값 조회.
+@Override
+public int getCompleteCount() {
+	return mapper.selectCompleteCount();
+}
+
+//할일 전체 조회
+@Override
+public List<Todo> getTodoList() {
+	return mapper.selectTodoList();
+}
+
+
 }

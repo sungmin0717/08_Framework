@@ -3,19 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+<<<<<<<< HEAD:TodoList-boot/src/main/resources/templates/todo/detail.html
   <title>상세조회</title>
+========
+  <title>할 일 수정</title>
+>>>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8:TodoList-boot/src/main/resources/templates/todo/update.html
 </head>
-
-
-
-
-
-
 <body>
+  
+  <h3>할 일 수정</h3>
 
+<<<<<<<< HEAD:TodoList-boot/src/main/resources/templates/todo/detail.html
  <p th:text="${todoNo}"></p>
+========
+  <form action="/todo/update" method="post" >
+    <div>
+      제목 : <input type="text" name="todoTitle" th:value="${todo.todoTitle}">
+    </div>
+    <div>
+      <textarea name="todoDetail" 
+        rows="3" cols="50" placeholder="상세 내용" th:text="${todo.todoDetail}"> </textarea>
+    </div>
 
+    <input type="hidden" name="todoNo" th:value="${todo.todoNo}">
+
+    <button>수정</button>
+  </form>
+>>>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8:TodoList-boot/src/main/resources/templates/todo/update.html
+
+=======
+  <title>상세조회</title>
+
+  <!-- 경로 작성 static 폴더 기준으로 경로 작성 -->
+  <link rel="stylesheet" href="/css/detail.css">
+  <!-- / = static -->
+</head>
+<body>
+  <!-- 할 일 제목 -->
+  <h1 th:text="${todo.todoTitle}"></h1>
+
+  <!-- 완료 여부 -->
+  <div class="complete">
+    완료 여부 : 
+    <span th:classappend="${todo.todoComplete} == 1 ? 'green' : 'red'"
+          th:text="${todo.todoComplete} == 1 ? 'O' : 'X'">O</span>
+  </div>
+
+
+
+  <div th:text="| 작성일 : ${todo.regDate}|"></div>
+
+  <!-- 상세 내용 -->
+  <div class="content" th:text="${todo.todoDetail}"></div>
+
+  <div class="btn-container">
+    <div>
+      <button id="goToList">목록으로</button>
+    </div>
+    
+    <div>
+      <button id="completeBtn">완료 여부 변경</button>
+      <button id="updateBtn">수정</button>
+      <button id="deleteBtn">삭제</button>
+    </div>
+  </div>
+
+
+  <th:block th:replace= "common/footer"> </th:block>
+  <!-- 스크립트 조각 추가. --> 
+
+  <script src="/js/detail.js"> </script>
+>>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
 </body>
-
-
 </html>

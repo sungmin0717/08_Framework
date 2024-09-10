@@ -9,7 +9,7 @@
 	<!-- config 설정 떄문에 Todo 작성 가능. -->
 	<select id="selectTodoList" resultType="Todo">
 				SELECT
-					TODO_NO, 
+				TODO_NO, 
 					TODO_TITLE, 
 					TODO_COMPLETE, 
 					TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE 
@@ -27,19 +27,6 @@
 		AND TODO_COMPLETE = 1
 	</select>
 	
-<<<<<<< HEAD
-	<!--상세조회 조회.-->
-	<select id="detailUser"
-			resultType="Todo">
-		SELECT 
-		  *
-		FROM 
-		  TB_TODO 
-		WHERE 
-		  TODO_NO = #{todoNo}
-	</select>
-	
-=======
 	<!-- DML은 결과가 항상 int라서 안적어도된다(result Type) -->
 	<!-- 할 일 추가 -->
 	<insert id="todoAdd" 
@@ -106,8 +93,33 @@
 		TODO_NO = #{todoNo}
 	
 	</delete>
->>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
 	
+	<select id="searchTitle"
+			parameterType="_int"
+			resultType="string">
+	
+	
+	SELECT TODO_TITLE
+	FROM TB_TODO
+	WHERE TODO_NO = #{todoNo}
+	
+	</select>
+	
+	
+	<select id="totalCount"
+			resultType="_int">
+			
+	SELECT 
+		COUNT(*) 
+	FROM 
+		TB_TODO
+	
+	</select>
 
+
+
+	
+	
+	
 
 </mapper>

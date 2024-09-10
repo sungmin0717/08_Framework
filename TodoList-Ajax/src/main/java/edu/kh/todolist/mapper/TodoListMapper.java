@@ -23,14 +23,6 @@ public interface TodoListMapper {
 	 * @return completeCount
 	 */
 	int selectCompleteCount();
-	List<Todo> userDetail();
-
-
-
-	List<Todo> detailUser();
-
-
-
 
 
 
@@ -74,6 +66,24 @@ int todoUpdate(Todo todo);
  * @return
  */
 int todoDeletet(int todoNo);
+
+
+/** 아이디 검색 
+ * 
+ * @param todoNo
+ * @return
+ */
+String searchTitle(int todoNo);
+
+
+
+/** 전체 할 일 개수 조회.
+ * 
+ * @return
+ */
+int totalCount();
+
+
 
 
 

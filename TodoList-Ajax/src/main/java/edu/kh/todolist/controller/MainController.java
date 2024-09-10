@@ -3,26 +3,18 @@ package edu.kh.todolist.controller;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-=======
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
->>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
 
 import edu.kh.todolist.dto.Todo;
 import edu.kh.todolist.service.TodoListService;
-import lombok.extern.slf4j.Slf4j;
-@Slf4j
-@Mapper
+
 @Controller // Controller임을 명시 + Bean 등록
 //요청 응답 제어
 public class MainController {
@@ -31,7 +23,6 @@ public class MainController {
 	private TodoListService service;
 	
 	@RequestMapping("/") // 최상위 주소 매핑(GET, POST 가리지 않음)
-
 	public String mainPage(Model model) {
 		
 		Map<String, Object> map = service.selectTodoList();
@@ -48,25 +39,7 @@ public class MainController {
 		return "common/main";
 	}
 	
-<<<<<<< HEAD
-	/*detail 페이지*/
-	@GetMapping("/todo/detail/{todoNo}")
-	public String detail(
-			Model model,
-			Todo todo
-			) {
-		
-		List<Todo> todoList = service.detailUser();
-		
-		log.debug("todo : {}", todoNo);
-		
-		
-		return "todo/detail";
-	}
-	
-=======
 
->>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
 
 	
 	

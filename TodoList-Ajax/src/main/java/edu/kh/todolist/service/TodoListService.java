@@ -13,14 +13,6 @@ public interface TodoListService {
 	 */
 	Map<String, Object> selectTodoList();
 
-<<<<<<< HEAD
-	List<Todo> detailUser();
-
-
-	
-	
-	
-=======
 	
 	
 	
@@ -63,7 +55,37 @@ public interface TodoListService {
  * @return
  */
 int todoDelete(int todoNo);
->>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
+
+
+
+
+//검색 아이디 찾기
+String searchTitle(int todoNo);
+
+
+
+/** 전체 할 일 개수 조회.
+ * 
+ * @return
+ */
+int totalCount();
+
+
+
+
+/** 완료된 할 일 개수 조회
+ * 
+ * @return completeCount
+ */
+int getCompleteCount();
+
+
+
+/** 할일 전체 조회.
+ * 
+ * @return
+ */
+List<Todo> getTodoList();
 
 
 
@@ -74,11 +96,9 @@ int todoDelete(int todoNo);
 
 
 
-<<<<<<< HEAD
-	
-	
 
-=======
->>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
+
+
+
 
 }
