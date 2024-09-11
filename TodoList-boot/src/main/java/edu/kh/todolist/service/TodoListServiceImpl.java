@@ -12,77 +12,61 @@ import edu.kh.todolist.dto.Todo;
 import edu.kh.todolist.mapper.TodoListMapper;
 
 @Transactional // 내부 메서드 수행 후 트랜잭션 처리 수행
-							// - 예외 발생 시 rollback, 아님 commit
-@Service //서비스 역할임을 명시
+							 // - 예외 발생 시 rollback, 아님 commit
+@Service // Service 역할임을 명시 + Bean
 public class TodoListServiceImpl implements TodoListService{
 
-	@Autowired	// 등록된 bean 중에서 같은 타입을 얻어와 대입(DI)
+	@Autowired // 등록된 bean 중에서 같은 타입을 얻어와 대입(DI)
 	private TodoListMapper mapper;
 	
-	
-	//) 할 일 목록 조회.
 	@Override
 	public Map<String, Object> selectTodoList() {
 		
+		// 1) 할 일 목록 조회
 		List<Todo> todoList = mapper.selectTodoList();
 		
-		//2 완료된 할 일 개수 조회
-		
+		// 2) 완료된 할 일 개수 조회
 		int completeCount = mapper.selectCompleteCount();
 		
-		//3 map 객체 생성 후 조회 결과 담기
-		Map<String, Object> map= new HashMap<>();
+		// 3) Map 객체 생성 후 조회 결과 담기
+		Map<String, Object> map = new HashMap<>();
 		
 		map.put("todoList", todoList);
 		map.put("completeCount", completeCount);
 		
+		// 4) Map 객체 반환
 		return map;
 	}
 	
 	
-<<<<<<< HEAD
-	
-		
-		
-	
-
-	
-
-
-=======
 	// 할 일 추가
 	@Override
 	public int todoAdd(Todo todo) {
-		
-		
-		
 		return mapper.todoAdd(todo);
 	}
-	// 할 일 상세 조회.
+	
+	// 할 일 상세조회
 	@Override
 	public Todo todoDetail(int todoNo) {
 		return mapper.todoDetail(todoNo);
 	}
 	
-//	완료 여부 변경
+	// 완료 여부 변경
 	@Override
 	public int todoComplate(int todoNo) {
 		return mapper.todoComplate(todoNo);
 	}
-
-
-	// 업데이트
+	
+	
+	// 할 일 수정
 	@Override
 	public int todoUpdate(Todo todo) {
-		
-		
 		return mapper.todoUpdate(todo);
 	}
-@Override
-public int todoDelete(int todoNo) {
-	return mapper.todoDeletet(todoNo);
-}
-
->>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
 	
+	// 할 일 삭제
+	@Override
+	public int todoDelete(int todoNo) {
+		return mapper.todoDelete(todoNo);
+	}
 }

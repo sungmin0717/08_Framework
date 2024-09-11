@@ -23,8 +23,8 @@
 .popup-row{
   padding: 10px;
   margin: 10px;
+
   border-bottom: 3px solid grey;
- 
   /* 위치의 상대적 기준점 */
   position : relative;
   
