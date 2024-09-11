@@ -1,0 +1,58 @@
+
+*{
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  display: flex;
+  flex-direction: column; /* 중심축 방향 세로 */
+  min-height: 100vh;      /* 최소 높이를 화면 비율 100% */ 
+}
+
+main{
+  flex-grow: 1;       /* 중심축 방향으로 팽창 */
+  min-height: 500px;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid black;
+  height: 100px;
+}
+
+.header1{width: 15%; display: flex; align-items: center; justify-content: center;}
+.header2{width: 70%; display: flex; align-items: center; justify-content: center;}
+.header3{width: 15%; display: flex; align-items: center; justify-content: center;}
+
+.search{
+  border: none;
+  outline: none; /* 클릭 시 보이는 테두리 없앰*/
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  width: 50%;
+}
+
+.searchOutline{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  padding: 2px; 
+  border-radius: 5px;
+}
+.searchButton{
+  width: 8%;
+  cursor: pointer;
+  border: none;
+  color : var(--main-color);
+  background-color: white;
+
+}
+
+
+
