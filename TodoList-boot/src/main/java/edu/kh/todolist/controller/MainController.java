@@ -3,27 +3,30 @@ package edu.kh.todolist.controller;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+>>>>>>> 8788d998079eb390e7ac62a09439676ed472fb36
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.kh.todolist.dto.Todo;
 import edu.kh.todolist.service.TodoListService;
-import lombok.extern.slf4j.Slf4j;
-@Slf4j
-@Mapper
+
+// Controller : 요청/응답 제어
 @Controller // Controller임을 명시 + Bean 등록
-//요청 응답 제어
 public class MainController {
 	
 	@Autowired // 등록된 Bean 중에서 같은 자료형 객체를 의존성 주입(DI)
 	private TodoListService service;
 	
+	/** 메인 페이지
+	 * @param model 데이터 전달용 객체(request scope)
+	 * @return
+	 */
 	@RequestMapping("/") // 최상위 주소 매핑(GET, POST 가리지 않음)
-
 	public String mainPage(Model model) {
 		
 		Map<String, Object> map = service.selectTodoList();
@@ -39,6 +42,7 @@ public class MainController {
 		// classpath:/templates/common/main.html  forward 
 		return "common/main";
 	}
+<<<<<<< HEAD
 	
 	/*detail 페이지*/
 	@GetMapping("/todo/detail/{todoNo}")
@@ -58,7 +62,10 @@ public class MainController {
 =======
 
 >>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
+=======
+>>>>>>> 8788d998079eb390e7ac62a09439676ed472fb36
 
+	
 	
 	
 }

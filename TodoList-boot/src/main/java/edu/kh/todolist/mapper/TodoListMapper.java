@@ -73,7 +73,10 @@ int todoUpdate(Todo todo);
  * @param todoNo
  * @return
  */
-int todoDeletet(int todoNo);
+int todoDelete(int todoNo);
+
+
+
 
 
 
