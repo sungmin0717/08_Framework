@@ -1,58 +1,70 @@
-
-*{
-  /* border: 1px solid black; */
-  box-sizing: border-box;
-  padding: 0;
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
-
-body{
-  display: flex;
-  flex-direction: column; /* 중심축 방향 세로 */
-  min-height: 100vh;      /* 최소 높이를 화면 비율 100% */ 
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
-
-main{
-  flex-grow: 1;       /* 중심축 방향으로 팽창 */
-  min-height: 500px;
+nav {
+  margin: 10px;
+  text-align: center;
 }
-
-.header{
-  display: flex;
-  flex-direction: row;
-  border-bottom: 2px solid black;
-  height: 100px;
+nav a {
+  margin: 10px;
+  text-decoration: none;
+  color: #333;
 }
-
-.header1{width: 15%; display: flex; align-items: center; justify-content: center;}
-.header2{width: 70%; display: flex; align-items: center; justify-content: center;}
-.header3{width: 15%; display: flex; align-items: center; justify-content: center;}
-
-.search{
-  border: none;
-  outline: none; /* 클릭 시 보이는 테두리 없앰*/
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px;
-  width: 50%;
+section {
+  padding: 20px;
+  text-align: center;
 }
-
-.searchOutline{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
-  padding: 2px; 
-  border-radius: 5px;
-}
-.searchButton{
-  width: 8%;
-  cursor: pointer;
-  border: none;
-  color : var(--main-color);
+.login-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
   background-color: white;
-
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.login-container button:hover {
+  background-color: #45a049;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
+#username{
+  width: 200px;
+}
 
-
+#password{
+  width: 200px;
+}
