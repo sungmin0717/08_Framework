@@ -2,6 +2,8 @@ package edu.kh.todolist.service;
 
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import edu.kh.todolist.dto.Todo;
 
 public interface TodoListService {

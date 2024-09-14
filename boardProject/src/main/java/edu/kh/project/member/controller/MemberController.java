@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +45,8 @@ public class MemberController {
 			@RequestParam("memberEmail") String memberEmail,
 			@RequestParam("memberPw") String memberPw,
 			@RequestParam(name="saveEmail", required = false) String saveEmail,
-			// required = false 필수 해제 
+			// required = false 필수 해제 없으면 null 나오는 데 null 나오면 에러 생김 
+			
 			RedirectAttributes ra,
 			Model model,
 			HttpServletResponse resp
@@ -133,6 +135,7 @@ public class MemberController {
 		return "redirect:/"; //메인 페이지
 	}
 	
+
 	
 	
 }

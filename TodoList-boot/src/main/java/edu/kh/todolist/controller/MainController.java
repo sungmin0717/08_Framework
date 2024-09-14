@@ -6,10 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.GetMapping;
-=======
->>>>>>> 8788d998079eb390e7ac62a09439676ed472fb36
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.kh.todolist.dto.Todo;
@@ -42,28 +38,6 @@ public class MainController {
 		// classpath:/templates/common/main.html  forward 
 		return "common/main";
 	}
-<<<<<<< HEAD
-	
-	/*detail 페이지*/
-	@GetMapping("/todo/detail/{todoNo}")
-	public String detail(
-			Model model,
-			Todo todo
-			) {
-		
-		List<Todo> todoList = service.detailUser();
-		
-		log.debug("todo : {}", todoNo);
-		
-		
-		return "todo/detail";
-	}
-	
-=======
-
->>>>>>> ff9ec2f2d3566b43f7c1c8e7c44591ecb3342dd8
-=======
->>>>>>> 8788d998079eb390e7ac62a09439676ed472fb36
 
 	
 	

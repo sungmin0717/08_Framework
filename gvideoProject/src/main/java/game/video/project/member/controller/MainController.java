@@ -8,7 +8,13 @@ public class MainController {
 	@RequestMapping("/") // "/" 요청 매핑(method 가리지 않음)
 	public String mainPage() {
 
+	
+
+		
 		
 		return "common/main";
+		
 	}
+	
+	
 }

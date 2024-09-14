@@ -154,3 +154,106 @@ footer p {
       .login-button:hover {
           background-color: #0056cc;
       }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+.headerNav{
+  color: white;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+
+div > a{
+  text-decoration: underline;
+}
+
+
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+
+
+
+
+.hero{
+  background-image: url('/images/foodBc.jpg');
+  background-size: cover;
+  opacity: 0.5;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: -1;
+}
+.mainFont{
+  color: rgb(17, 4, 4);
+}
+.hero h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.services {
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+.services h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.services .service {
+  margin: 1.5rem 0;
+}
+
+.about {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.about h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+}
+
+footer p {
+  font-size: 1rem;
+}
