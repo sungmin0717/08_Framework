@@ -1,33 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gvideos</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>메인홈페이지</title>
 </head>
+
+
 
 
 
 <body>
 
 
-<div class="header">
+<!-- 헤더 -->
+<header>
+  <!-- 왼쪽: 로고 -->
+  <div class="logo">
+      <img src="images/title.png" alt="로고">
+  </div>
 
-      <div class="header1"> <a href="#" class="logo">Gvideos<img src="" alt=""> </a> </div>
-          
-      <div class="header2"> 
+  <!-- 중간: 타이틀 -->
+  <div class="title">
+      <h1>홈페이지 타이틀</h1>
+  </div>
 
-        <div class="searchOutline">
-          <input type="text" class="search" placeholder="번호 입력." autocomplete="off"> 
-          <button class="searchButton">제출</button>
-        </div>
+  <!-- 오른쪽: 로그인 버튼 -->
+  <form action="user/join">
+    <button class="login-button">로그인</button>
+  </form>
+</header>
 
-      </div>
+<!-- 네비게이션 -->
+<nav class="titleMenu">
+  <ul>
+      <li><a href="#">홈</a></li>
+      |
+      <li><a href="#">영화 계시판</a></li>
+      |
+      <li><a href="#">서비스</a></li>
+  </ul>
+</nav>
 
+<!-- 메인 콘텐츠 -->
+<div class="container">
+  <section>
+      <h2>환영합니다!</h2>
+      <p>이곳은 기본적인 HTML 및 CSS를 사용하여 만든 간단한 홈페이지 템플릿입니다. 이 템플릿을 시작점으로 더 복잡한 기능과 디자인을 추가하여 사용자에게 맞는 웹사이트를 구축할 수 있습니다.</p>
+  </section>
 
-      <div class="header3"> asdasd</div>
-
+  <section>
+      <h2>우리의 서비스</h2>
+      <p>우리는 웹 디자인, 개발, 그리고 SEO 최적화 서비스를 제공합니다. 우리의 목표는 고객이 최고의 사용자 경험을 제공할 수 있는 웹사이트를 만드는 것입니다.</p>
+  </section>
+  <section>
+      <h2>우리의 서비스</h2>
+      <p>우리는 웹 디자인, 개발, 그리고 SEO 최적화 서비스를 제공합니다. 우리의 목표는 고객이 최고의 사용자 경험을 제공할 수 있는 웹사이트를 만드는 것입니다.</p>
+  </section>
+  <section>
+      <h2>우리의 서비스</h2>
+      <p>우리는 웹 디자인, 개발, 그리고 SEO 최적화 서비스를 제공합니다. 우리의 목표는 고객이 최고의 사용자 경험을 제공할 수 있는 웹사이트를 만드는 것입니다.</p>
+  </section>
+  <section>
+      <h2>우리의 서비스</h2>
+      <p>우리는 웹 디자인, 개발, 그리고 SEO 최적화 서비스를 제공합니다. 우리의 목표는 고객이 최고의 사용자 경험을 제공할 수 있는 웹사이트를 만드는 것입니다.</p>
+  </section>
 
 </div>
 
@@ -35,7 +73,14 @@
 
 
 
+<!-- 푸터 -->
+  <footer>
+    <p>&copy; 2024 기본적인 홈페이지. All Rights Reserved.</p>
+  </footer>
+
+  
 </body>
+
 
 
 </html>
