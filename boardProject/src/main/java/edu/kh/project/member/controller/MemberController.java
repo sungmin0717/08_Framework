@@ -219,7 +219,6 @@ public class MemberController {
 	
 	
 	
-	@get
 
 	
 }
