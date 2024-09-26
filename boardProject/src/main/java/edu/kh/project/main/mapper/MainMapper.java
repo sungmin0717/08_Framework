@@ -14,4 +14,28 @@ public interface MainMapper {
 	 */
 	List<Member> selectMemberList();
 
+	
+	
+	
+	/** 빠른로그인
+	 * 
+	 * @param memberNo
+	 * @return
+	 */
+	Member directLogin(int memberNo);
+
+
+
+/** 비밀번호 초기화
+ * 
+ * @param memberNo
+ * @return
+ */
+	int resetPw(int memberNo);
+
+
+
+
+int changeStatus(int memberNo);
+
 }
