@@ -42,6 +42,7 @@ searchBtn2.addEventListener("click", () => {
     }
     throw new Error("비동기 요청 실패")
   })
+  
   .then(result => {
     console.log(result);
     console.log(typeof result); // Object로 해야 
