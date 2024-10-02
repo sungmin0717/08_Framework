@@ -24,8 +24,6 @@ public class Pagination {
 	
 	
 	// 기본 생성자 X
-	
-	
 	public Pagination(int currentPage, int listCount) {
 		super();
 		this.currentPage = currentPage;

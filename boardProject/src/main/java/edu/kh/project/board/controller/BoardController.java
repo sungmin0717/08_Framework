@@ -54,10 +54,13 @@ public class BoardController {
 		Pagination pagination = (Pagination)map.get("pagination");
 		
 		//정상 조회 되었는지 log 확인
-		for(Board b : boardList) log.debug(b.toString());		
-		
+//		for(Board b : boardList) log.debug(b.toString());		
+//		
 		log.debug(pagination.toString());
+
 		
+		model.addAttribute("boardList", boardList);
+		model.addAttribute("pagination", pagination);
 		
 		return "board/boardList";
 	}
