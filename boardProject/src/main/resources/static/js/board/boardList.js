@@ -53,3 +53,23 @@ pageNoList?.forEach( (item, index) => {
   });
 
 })
+
+
+/* 글쓰기 버튼 클릭시   */
+
+const insertBtn = document.querySelector("#insertBtn");
+
+insertBtn?.addEventListener("click", () => {
+
+  //현재 주소: /board/{boardCode}
+  //요청 주소 : /editBoard/{boardCode}/insert
+
+  const boardCode = location.pathname.split("/")[2];
+  //주소 자르기 
+
+  location.href = `/editBoard/${boardCode}/insert`;
+  // 받아온 보드코드를 넣어주기
+
+  
+
+});

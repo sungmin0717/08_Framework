@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import edu.kh.project.board.dto.Board;
 import lombok.RequiredArgsConstructor;
 
 public interface BoardService {
@@ -15,6 +16,8 @@ public interface BoardService {
 	 * @return Map
 	 */
 	Map<String, Object> selectBoardList(int boardCode, int cp);
+
+	Board selectDetail(Map<String, Integer> map);
 	
 	
 

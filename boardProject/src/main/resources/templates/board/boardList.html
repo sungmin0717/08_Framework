@@ -14,6 +14,8 @@
 </head>
 
 <body>
+  
+  
   <main>
 
     <th:block th:replace="~{common/header}"></th:block>
@@ -63,6 +65,10 @@
                 <td>
                   <!-- 썸네일 추가 예정 -->
   
+                  <img  th:if="*{thumbnail}"
+                        th:src="*{thumbnail}"
+                        class="list-thumbnail"
+                        >
                   <!-- 상세조회 요청 주소 /board/{boardCode}/{boardNo} -->
                   
                   <!-- boardCode=1 -> 수정할 예정!!! -->
@@ -95,7 +101,8 @@
 
       <div class="btn-area">
         <!-- 로그인 상태일 때만 글쓰기 버튼 노출 -->
-        <button id="insertBtn">글쓰기</button>
+        <button th:if="${session.loginMember}" 
+        id="insertBtn">글쓰기</button>
       </div>
 
 
