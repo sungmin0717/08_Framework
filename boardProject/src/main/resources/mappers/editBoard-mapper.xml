@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.kh.project.board.mapper.EditBoardMapper">
+  
+ <!-- 
+ 	시퀀스를 이용해서 다음 boardNo를 생성한후 Board객체에 boardNo을 세팅!!
+ 	
+ 	왜? 동시에 시퀀스로 번호를 발생 시킬가능성이 있기 때문에
+ 			미리 번호를생성
+ 			
+ 		방법 : 얕은 복사의 특징 (모두 원본참조)이영해서
+ 		mapper에서세팅한 값을
+ 		controller,service에서 사용 가능하게 함`
+  -->
+  
+  <!-- 
+  	useGeneratedKeys 
+  	-DB에서 내부적으로 생성된 Key(시퀀스)를
+     사용할 수 있는 상태 여부 지정
+     	-> 전달 받은 파라미터 객체의
+   -->
+  
+  
+  <insert id="boardInsert" 
+   parameterType="Board"
+   useGeneratedKeys="true"
+  >
+  
+	  <selectKey order="BEFORE"
+	  			 resultType="_int"
+	  			 keyProperty="boardNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL  	
+	  </selectKey>
+	  
+	  	INSERT INTO "BOARD"
+	  	VALUES(
+	  		#{boardNo}, <!-- 번호판처럼 사용 가능함-->
+	  		#{boardTitle},
+	  		#{boardContent},
+	  		DEFAULT,DEFAULT,DEFAULT,DEFAULT,
+	  		#{memberNo},
+	  		#{boardCode}
+	  	)
+  	
+  
+  </insert>
+  
+    
+  
+    	
+	<!--  
+  		동적 SQL 중 <foreach>
+  		- Mybatis에서 제공하는 향상된 for문
+  		
+  		- 특정 SQL 구문을 반복할 때 사용
+  		
+  		- 반복 사이에 구분자(separator)를 추가할 수 있음
+  		
+  		[지원하는 속성]
+  		collection : 반복할 객체의 타입 작성(list, set, map...) * 필수
+		item : collection에서 순차적으로 꺼낸 하나의 요소를 저장하는 변수
+		index : 현재 반복 접근중인 인덱스 (0,1,2,3,4 ..)
+		
+		open : 반복 전에 출력할 sql
+		close : 반복 종료 후에 출력한 sql
+		
+		separator : 반복 사이사이 구분자
+  	-->
+  	
+  <!-- 여러 미이지 한번에 insert -->
+  <insert id="insertUploadList">
+  	INSERT INTO "BOARD_IMG"
+  	<foreach collection="list" item="img"
+  		open="(" close=")" separator= " UNION ALL ">
+  		
+  			SELECT 
+  				NEXT_IMG_NO(),
+				#{img.imgPath},
+				#{img.imgOriginalName},
+				#{img.imgRename},
+				#{img.imgOrder},
+				#{img.boardNo}
+			FROM DUAL
+  	
+  	</foreach>
+  
+  </insert>
+  
+  
+  
+  
+  
+</mapper>

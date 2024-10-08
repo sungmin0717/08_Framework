@@ -35,11 +35,11 @@ searchAddress.addEventListener("click", findAddress);
 /* 필수 입력 항목의 유효성 검사여부를 체크하기 위한 객체(체크리스트)*/
 const checkObj = {
   "memberEmail"     : false,
-  "authKey"         : false,
   "memberPw"        : false,
   "memberPwConfirm" : false,
   "memberNickname"  : false,
-  "memberTel"       : false
+  "memberTel"       : false,
+  "authKey"         : false 
 };
 
 /* ----- 이메일 유효성 검사 ----- */
@@ -510,19 +510,18 @@ signUpForm.addEventListener("submit", e => {
       let str; // 출력할 메시지 저장
 
       switch(key){
-        case "memberEmail"     : str = "이메일이 유효하지않거나 빈칸입니다."; break;
+        case "memberEmail"     : str = "이메일이 유효하지 않습니다"; break;
+        case "memberNickname"  : str = "닉네임이 유효하지 않습니다"; break;
+        case "memberPw"        : str = "비밀번호가 유효하지 않습니다"; break;
+        case "memberPwConfirm" : str = "비밀번호 확인이 일치하지 않습니다"; break;
+        case "memberTel"       : str = "전화번호가 유효하지 않습니다"; break;
         case "authKey"         : str = "이메일이 인증되지 않았습니다"; break;
-        case "memberPw"        : str = "비밀번호가 유효하지않거나 빈칸입니다."; break;
-        case "memberPwConfirm" : str = "비밀번호 확인이 유효하지않거나 빈칸입니다."; break;
-        case "memberNickname"  : str = "닉네임이 유효하지않거나 빈칸입니다."; break;
-        case "memberTel"       : str = "전화번호가 유효하지않거나 빈칸입니다."; break;
       }
 
       alert(str); // 경고 출력
 
       // 유효하지 않은 요소로 focus 이동
-      document.getElementById(key).focus(); 
-      //focus 로 유효하지 않을떄에 해당 요소로 이동
+      document.getElementById(key).focus();
 
       e.preventDefault(); // 제출 막기
 
@@ -530,10 +529,9 @@ signUpForm.addEventListener("submit", e => {
     }
   }
 
-    /* 주소 유효성 검사 */
+  /* 주소 유효성 검사 */
   // - 모두 작성   또는   모두 미작성
   const addr = document.querySelectorAll("[name = memberAddress]");
-  //name = memberAddress 에 
 
   let empty = 0; // 비어있는 input의 개수
   let notEmpty = 0; // 비어있지 않은 input의 개수
@@ -553,6 +551,4 @@ signUpForm.addEventListener("submit", e => {
     return;
   }
 
-
 });
-

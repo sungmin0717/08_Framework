@@ -18,11 +18,8 @@ public interface FileUploadMapper {
 	 */
 	int fileInsert(FileDto file);
 
-	
-	/** 파일 목록 조회
-	 * 
-	 * @return fileList
-	 */
 	List<FileDto> selectFileList();
+
+	
 
 }

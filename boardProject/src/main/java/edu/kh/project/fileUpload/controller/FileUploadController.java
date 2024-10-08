@@ -9,12 +9,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+<<<<<<< HEAD
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.fileUpload.dto.FileDto;
 import edu.kh.project.foleUpload.service.FileUploadService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+=======
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import edu.kh.project.fileUpload.dto.FileDto;
+import edu.kh.project.fileUpload.service.FileUploadService;
+import edu.kh.project.member.dto.Member;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import oracle.jdbc.proxy.annotation.Post;
+>>>>>>> 5da6f498957933790623bd36474fab55fd6e8007
 
 @Slf4j
 @Controller
@@ -74,6 +87,45 @@ public class FileUploadController {
 		
 		return "redirect:main";
 	}
+	
+	/** 단일 파일 업로드 + 일반 데이터
+	 * 
+	 * @param uploadFile : 업로드되어 임시저장된 파일을 참조하는 객체
+	 * @param fileName   : 원본 이름으로 지정된 파일명
+	 * @return
+	 */
+	@PostMapping("test2")
+	public String test2(
+		@RequestParam("uploadFile") MultipartFile uploadFile,
+		@RequestParam("fileName") String fileName)throws IllegalStateException, IOException {
+		
+		String filePath = service.test2(uploadFile,fileName);
+		
+		return "redirect:main";
+	}
+	
+	
+	
+	/** 단일 파일 업로드
+	 *  
+	 * @param uploadFile : 업로드되어 임시 저장된 파일을참조하는 객체
+	 * @return
+	 */
+	@PostMapping("test3")
+	public String test3(
+			@RequestParam("uploadFile") MultipartFile uploadFile
+			) {
+		
+		
+		String filePath = service.test3(uploadFile);
+		
+		
+		log.debug("업로드된 파일 경로 : {}", filePath);
+		
+		return "redirect:main";
+	}
+	
+	
 	
 	
 	
