@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.kh.project.common.util.RedisUtil;
 import edu.kh.project.email.service.EmailService;
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping("email")

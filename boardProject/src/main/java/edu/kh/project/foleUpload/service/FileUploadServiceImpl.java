@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import edu.kh.project.fileUpload.dto.FileDto;
 import edu.kh.project.fileUpload.mapper.FileUploadMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 // @Transactional
 // - UnChecked Exception 발생 시 Rollback 수행
