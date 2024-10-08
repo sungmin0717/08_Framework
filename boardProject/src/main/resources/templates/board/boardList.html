@@ -72,7 +72,7 @@
                   <!-- 상세조회 요청 주소 /board/{boardCode}/{boardNo} -->
                   
                   <!-- boardCode=1 -> 수정할 예정!!! -->
-                  <a th:href="@{/board/{boardCode}/{boardNo} (boardCode=1, boardNo=*{boardNo})}" 
+                  <a th:href="@{/board/{boardCode}/{boardNo} (boardCode=${boardCode}, boardNo=*{boardNo})}" 
                      th:text="*{boardTitle}">게시글 제목</a>
 
                   <!-- 댓글 수 -->

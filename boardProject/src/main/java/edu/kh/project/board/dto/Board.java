@@ -63,4 +63,9 @@ public class Board {
 	private List<Comment> commentList;
 	
 	
+	// 좋아요 체크 여부를 저장할 필드 (1 == 누른적 있음)
+	private int likeCheck;
+	
+	
+	
 }

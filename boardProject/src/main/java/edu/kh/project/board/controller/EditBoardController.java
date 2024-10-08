@@ -90,9 +90,9 @@ public class EditBoardController {
 			path = "insert";
 			message = "게시글 작성 실팽";
 		}else {
-		//	path = "/board/" + boardCode + "/" + boardNo; // 상세조회 주소
+			path = "/board/" + boardCode + "/" + boardNo; // 상세조회 주소
 			
-			path = "/board/" + boardCode; // (목록 조회 주소)
+//			path = "/board/" + boardCode; // (목록 조회 주소)
 			message = "게시글 작성 되었습니당";
 		}
 		
