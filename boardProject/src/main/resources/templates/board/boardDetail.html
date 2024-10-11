@@ -146,6 +146,14 @@
 
   <th:block th:replace="~{common/footer}"></th:block>
 
+  <script th:inline="javascript">
+    // th:inline="javascript"
+    // -  Java 데이터 -> JS 자료형으로 자동 변환
+
+    // 로그인 되어있으면 true, 아니면 false
+    const loginCheck = /*[[${session.loginMember != null}]]*/ false;
+    
+  </script>
 
   <script src="/js/board/boardDetail.js"></script>
   <script src="/js/board/comment.js"></script>

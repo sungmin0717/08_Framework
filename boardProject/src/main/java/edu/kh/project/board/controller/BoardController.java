@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.board.dto.Board;
+import edu.kh.project.board.dto.Comment;
 import edu.kh.project.board.dto.Pagination;
 import edu.kh.project.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -112,14 +114,58 @@ public class BoardController {
 			
 			}
 		
-		
-		
-		
-		
-		
-		
-		
 		return "board/boardDetail";
+	}
+	
+	/** 댓글 목록 조회(비동기)
+	 *  
+	 *  @param boardNo : 게시글 번호
+	 *  @param : foward시 대상에게 데이터를 전달하는 객체
+	 *  
+	 * @return
+	 */
+	@GetMapping("commentList")
+	public String selectCommentList(
+			@RequestParam ("boardNo") int boardNo, //쿼리스트링 전달 받음
+			Model model
+			
+			) {
+		
+		
+		List<Comment> commentList = service.selectCommentList(boardNo);
+		
+		/* *보통 비동기 통신(AJAX) 방법 
+		 * 	 - 요청 -> 응답
+		 * 
+		 * *forward
+		 * - 요청 위임
+		 * - 요청에 대한 응답 화면(HTML) 생성을
+		 *   템플릿 엔진 jsp,Thymeleaf)이 대신 수행
+		 * 
+		 * 
+		 * -동기식 x ,
+		 * 	템플릿 엔진을 이용해서 html코드를 쉽게 생성
+		 * 
+		 * @ResponsBody
+		 * 	- 컨트롤러에서 반환되는 값을
+		 * 	응답 본문에 그대로 반환
+		 * 		-> 템플릿 엔진 (tyymeleaf)를 이용해서 html 코드를
+		 * 					만들어서 반환 x 
+		 * 						데이터 있는 그대로를 반환
+		 */
+		
+		//Board 객체 생성
+		Board board = Board.builder().commentList(commentList).build();
+		
+		//"board"라는 key 값으로 생성한 Board 객체를
+		// forward 대상인 comment.html로 전달
+		model.addAttribute("board", board);
+		
+		//comment.html에 comment-list 조각 thymeleaf 코드를 해석해서
+		// 완전한 hylea 코드로 변환 후 
+		// 요청한 곳으로 응답( fetch() API 코드로 html 코드가 반환)
+		
+		return "board/comment :: comment-list"; // 타임리프 해석해서  js 로 넘겨주고 js 에서 html 로 다시 해석
 	}
 	
 	
