@@ -63,7 +63,7 @@ public class BoardTypeInterceptor implements HandlerInterceptor {
 		// 2) application 객체에 "boardTypeList"가 없을 경우
 		if(application.getAttribute("boardTypeList") == null) {
 			
-			 log.info("----- boardTypeList 조회 -----");
+			 log.info("--------------------- boardTypeList 조회 -------------------------");
 			 
 			 // DB에서 모든 게시판 종류를 조회하는 서비스 호출
 			 List<Map<String, String>> boardTypeList

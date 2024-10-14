@@ -41,19 +41,34 @@ public class BoardController {
 			@PathVariable("boardCode") int boardCode, // /board/2 요청이 오면 얻어와 매개변수에 집어 넣겟따.
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
 			// 무조건 제출해야한다 기본값은 cp 근데 없을수도 있어 기본값은 1
-			Model model
+			Model model,
+			@RequestParam Map<String, Object> paramMap
 			) {
+		log.debug("paramMap : {}", paramMap);
 		
 		//서비스 호출 후 결과 반환 받기
 		// - 목록 조회인데 Map으로 반환 받는 이유?
 		// -> 서비스에서 여러 결과를 만들어내야되는데 
 		// 		메서드는 반환을 1개만 할 수 있기 떄문에 
 		// 		Map으로 묶어서 반환 받을 예정
-		Map<String, Object> map = service.selectBoardList(boardCode, cp);
+		
+		Map<String, Object> map = null;
+		
+		//검색이 아닌 경우 == 일반 목록 조회
+		if(paramMap.get("key") == null) {
+			
+		map = service.selectBoardList(boardCode, cp);
+		
+		}else { //검색한 경우
+			
+			//paramMap에 key, query 담겨 있음
+			map = service.selectSearchList(boardCode, cp, paramMap);
+		}
+		
+		
 		
 		
 		// map 에 묶여잇는 값 풀어놓기.
-		
 		List<Board> boardList = (List<Board>)map.get("boardList");
 		Pagination pagination = (Pagination)map.get("pagination");
 		

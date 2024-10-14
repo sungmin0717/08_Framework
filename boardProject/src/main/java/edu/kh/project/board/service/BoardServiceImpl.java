@@ -147,6 +147,38 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.selectCommentList(boardNo);
 	}
 	
+	@Override
+	public Map<String, Object> selectSearchList(int boardCode, int cp, Map<String, Object> paramMap) {
+		
+		
+		// 1. 지정된게시판에서 감색 조건이 일치하는 게시글이 
+		// 		먗 개나 존재하는지 조회
+		
+		paramMap.put("boardCode", boardCode); //boardCode도 paramMap에 추가
+		
+		int searchCont = mapper.getSearchCount(paramMap);
+		
+		//2. Pagination 객체 생성하기 
+		Pagination pagination = new Pagination(cp, searchCont);
+		
+		//3. DB에서 cp (조회 하려는 페이지)에 해당하는 행을 조회
+		int limit = pagination.getLimit(); // 10
+		int offset = (cp - 1) * limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);
+
+		// 4. 검색 결과+ Pagenation 객체를 Map으로 묶어서 반환
+		
+		List<Board> boardList = mapper.selectSearchList(paramMap, rowBounds);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("boardList", boardList);
+		map.put("pagination", pagination);
+		
+		
+		return map;
+	}
+	
+	
 }
 
 
