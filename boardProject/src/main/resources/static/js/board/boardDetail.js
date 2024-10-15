@@ -116,3 +116,40 @@ updateBtn?.addEventListener("click", () => {
 
   form.submit(); // 제출
 });
+
+
+
+//------------------ 
+/* 목록으로 버튼 클릭 시  */
+const goToListBtn = document.querySelector("#goToListBtn");
+
+//클릭 이벤트
+goToListBtn.addEventListener("click", () => {
+
+  // 페이지당 게시글 수 
+  const limit = 10;
+
+  //주소        =  현재 페이지 주소
+  let url
+    = location.pathname + 
+  "/goToList?limit=" 
+  + limit;
+
+  // /board/{boardCode}/{boardNo}/goToList?limit=10
+
+
+  //location.search : 쿼리스트링 반환
+  //URLSearchParams 객체 : 쿼리스트링 관리하는 객체
+  const params = new URLSearchParams(location.search);
+
+  if(params.get("key") !== null){ //있을 경우
+    url += `&key=${params.get("key")}&query=${params.get("query")}`;
+
+  }
+
+  location.href = url; // 제출하기
+  // /board/{boardCode}/{boardNo}/goToList
+  // (검색 x) ? limit = 10
+  // (검색 o) ? limit=10&key=t&query=검색어
+
+})

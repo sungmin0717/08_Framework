@@ -57,7 +57,7 @@ pageNoList?.forEach((item, index) => {
     /* 검색인 경우 pathname 변수 뒤에 쿼리스트링 추가 */
 
     //URLSearchParams : 쿼리스트링을 관리하는 객체
-    // - 쿼리스트링 생성, 기존 쿼리 스트링을 K:V 형ㅌ로 분할 관리
+    // - 쿼리스트링 생성, 기존 쿼리 스트링을 K:V 형태로 분할 관리
     const params = new URLSearchParams(location.search);
 
     const key = params.get("key"); // K가 "key"인 요소의 값 
@@ -136,6 +136,6 @@ insertBtn?.addEventListener("click", () => {
   location.href = `/editBoard/${boardCode}/insert`;
   // 받아온 보드코드를 넣어주기
 
-
-
 });
+
+
