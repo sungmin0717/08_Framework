@@ -23,7 +23,7 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
+dependencies { // 라이브러리
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -50,6 +50,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/io.lettuce/lettuce-core
 	implementation 'io.lettuce:lettuce-core:6.4.0.RELEASE'
 	
+	// Spring AOP + AspectJ
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 
 tasks.named('test') {
