@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,9 @@ import edu.kh.project.sse.service.SseService;
 import lombok.extern.slf4j.Slf4j;
 import oracle.jdbc.proxy.annotation.Post;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 @RestController //Controller + @responseBody 합친거
@@ -112,6 +116,58 @@ public class SseController {
 		int memberNo = loginMember.getMemberNo();
 		return service.selectNotificationList(memberNo);
 	}
+	
+	/** 현재 로그인한 회원의 알림중 
+	 * 읽지 않은 알림 개수 조회
+	 * ("NOTIFICATION".NOTIFICATION_CHECK = 'N')
+	 * 
+	 * @param param
+	 * @return
+	 */
+	@GetMapping("notification/notReadCheck")
+	public int notReadCheck(
+			@SessionAttribute("loginMember") Member loginMember
+			) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		int result = service.notReadCheck(memberNo);
+		
+		System.out.println(result);
+		System.out.println(result);
+		System.out.println(result);
+		System.out.println(result);
+		System.out.println(result);
+		
+		return result;
+	}
+	
+	/**알림 삭제*/
+	@DeleteMapping("/notification")
+	public void deleteNotification(
+			@RequestBody int notificationNo
+			) {
+		
+		service.deleteNotification(notificationNo);
+		
+		
+	}
+	
+	/** 알림 읽음 여부 변경( n -> y)
+	 * 
+	 * @param notificationCheck
+	 * @return
+	 */
+	@PutMapping("notification")
+	public String updateNotification(
+			@RequestBody int notificationCheck
+			) {
+		
+		service.updateNotification(notificationCheck);
+		return null;
+		
+	}
+	
 	
 	
 }

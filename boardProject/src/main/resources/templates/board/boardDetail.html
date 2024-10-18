@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  [[${board}]]
+  <!-- [[${board}]] -->
 
   <main>
     <th:block th:replace="~{common/header}"></th:block>
@@ -44,7 +44,9 @@
           <span class="like-area">
 
             <!-- 좋아요 누른적이 있으면 fa-solid, 없으면 fa-regular 클래스 추가 -->
-            <i class="fa-heart fa-regular" id="boardLike"></i>
+            <i class="fa-heart" 
+               id="boardLike"
+               th:classappend="*{likeCheck == 1} ? fa-solid : fa-regular"></i>
 
             <!-- 좋아요 개수 -->
             <span th:text="*{likeCount}">0</span>
@@ -70,7 +72,6 @@
           </p>
         </div>
       </div>
-
 
 
       <!-- ====================== 이미지가 있을 경우 출력하는 구문 (예정) ====================== -->
@@ -117,6 +118,7 @@
       </th:block>
 
 
+
       <!-- ====================== 이미지가 있을 경우 출력하는 구문 (예정) ====================== -->
 
       <!-- 내용 -->
@@ -145,6 +147,7 @@
 
   <th:block th:replace="~{common/footer}"></th:block>
 
+  
   <script th:inline="javascript">
     // th:inline="javascript"
     // -  Java 데이터 -> JS 자료형으로 자동 변환
@@ -152,7 +155,14 @@
     // 로그인 되어있으면 true, 아니면 false
     const loginCheck = /*[[${session.loginMember != null}]]*/ false;
     
+    // 로그인한 회원의 닉네임
+    const memberNickname 
+      = /*[[${session.loginMember?.memberNickname}]]*/ null;
+
+    // 상세 조회한 게시글 정보
+    const boardDetail = /*[[${board}]]*/ null;
   </script>
+
 
   <script src="/js/board/boardDetail.js"></script>
   <script src="/js/board/comment.js"></script>

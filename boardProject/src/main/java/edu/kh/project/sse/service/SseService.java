@@ -18,4 +18,23 @@ public interface SseService {
 	 */
 	List<Notification> selectNotificationList(int memberNo);
 
+	/** 현재 로그인한 회원의 알림중 읽지 않은 알림 개수 조회
+	 *  
+	 * @param memberNo
+	 * @return
+	 */
+	int notReadCheck(int memberNo);
+
+	/** 알림 삭제
+	 * 
+	 * @param notificationNo
+	 */
+	void deleteNotification(int notificationNo);
+
+	/**알림 읽음 여부 변경( n -> y)
+	 * 
+	 * @param notificationCheck
+	 */
+	void updateNotification(int notificationCheck);
+
 }

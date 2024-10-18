@@ -63,4 +63,5 @@ public class Board {
 	private List<Comment> commentList;
 	
 	
+	private int likeCheck;
 }
