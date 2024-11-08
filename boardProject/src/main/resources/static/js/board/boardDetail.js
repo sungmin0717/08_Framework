@@ -124,7 +124,7 @@ updateBtn?.addEventListener("click", () => {
   form.action = location.pathname
                   .replace("board","editBoard") + "/updateView";
   form.method = "POST";
-
+  
   document.querySelector("body").append(form);
 
   form.submit(); // 제출
